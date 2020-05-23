@@ -3,5 +3,14 @@
 docker network create --subnet=172.15.0.0/16 hbase-group
 
 2.docker run
-docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hbase-centos-test -h hbase-centos-test --net hbase-group --ip 172.15.0.11 wanghang89/hbase-centos /usr/sbin/init
+
+#test container cmd
+docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hbase-centos-test -h hbase-centos-test --net hbase-group --ip 172.15.0.21 wanghang89/hbase-centos /usr/sbin/init
+
+#habse cluster container
+docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hmaster1 -h hmaster1 --net hbase-group --ip 172.15.0.11 wanghang89/hbase-centos:v1 /usr/sbin/init
+docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hmaster2 -h hmaster2 --net hbase-group --ip 172.15.0.12 wanghang89/hbase-centos:v1 /usr/sbin/init
+docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hslave1 -h hslave1 --net hbase-group --ip 172.15.0.13 wanghang89/hbase-centos:v1 /usr/sbin/init
+docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hslave2 -h hslave2 --net hbase-group --ip 172.15.0.14 wanghang89/hbase-centos:v1 /usr/sbin/init
+docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hslave3 -h hslave3 --net hbase-group --ip 172.15.0.15 wanghang89/hbase-centos:v1 /usr/sbin/init
 
