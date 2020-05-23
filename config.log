@@ -1,0 +1,7 @@
+
+1.create net bridge
+docker network create --subnet=172.15.0.0/16 hbase-group
+
+2.docker run
+docker run -d --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup --name hbase-centos-test -h hbase-centos-test --net hbase-group --ip 172.15.0.11 wanghang89/hbase-centos /usr/sbin/init
+
