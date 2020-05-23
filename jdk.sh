@@ -1,0 +1,3 @@
+JAVA_HOME=/opt/jdk/jdk1.8.0_251
+PATH=$PATH:$JAVA_HOME/bin
+export JAVA_HOME
